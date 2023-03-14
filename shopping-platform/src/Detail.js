@@ -6,6 +6,7 @@ const Detail = ({product, handleClose, handleAddCart}) => {
             <div className="detailList" key={product.productName}>
                 <h4>{product.productName}</h4>
                 <h4>{product.price}</h4>
+                
             </div>
 
             <button onClick={()=>handleAddCart(product)} > Add to Cart </button>
