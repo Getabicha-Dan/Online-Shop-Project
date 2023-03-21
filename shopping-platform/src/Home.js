@@ -23,22 +23,27 @@ const Home = () => {
     }
 
     const handleAddCart = (product) => {
-        
-        if (product.quantity === 1){
-           product.quantity= 1;
-           const newCart = [...cartProducts, product];
-           setCartProducts(newCart);
-           
-        } else {
-          
-           const newCart = [...cartProducts, product];
-               setCartProducts(newCart === product);
-               <p>{product.quantity + 1}</p>
-                         
-         }
-         return cartProducts; 
+       // check if product exist in cartProducts
     
-   
+       //if it exists then increament product.quantity
+       //if it doesn't then do product.quantity =1
+        if (cartProducts.find((prod) => product.productName === prod.productName)){
+           const newarray = cartProducts.map(prod=>{
+                if (prod.productName === product.productName){
+                    prod.quantity = prod.quantity + 1;
+                }  
+
+                return prod;
+            });
+
+            setCartProducts(newarray);
+        } else {         
+           // product.quantity = 1;   
+            //const newCart = [...cartProducts, product];
+            const newCart = [...cartProducts, {...product, quantity:1}];
+            setCartProducts(newCart);
+                    
+         }
     }
 
     const handleRemove = (productToRemove) => {
