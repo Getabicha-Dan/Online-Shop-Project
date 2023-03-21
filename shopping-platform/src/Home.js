@@ -45,10 +45,21 @@ const Home = () => {
                     
          }
     }
-
+    const handleDecreament =(product)=>{
+       
+        const newarray2 = cartProducts.map(prod=>{
+            if(prod.quantity > 1){
+                prod.quantity = prod.quantity -1;
+            }
+            return prod;
+        });
+        setCartProducts(newarray2);
+    }
     const handleRemove = (productToRemove) => {
         setCartProducts(cartProducts.filter((product) => productToRemove !== product));
     }
+
+   
 
    
     return ( 
@@ -56,7 +67,7 @@ const Home = () => {
             <ProductAdder products ={products} handleAdder={handleAdder} />        
             <ProductList products ={products} handleDetail={handleDetail}/>
             { selectedProduct && (<Detail product={selectedProduct} handleAddCart={handleAddCart} handleClose={handleClose}/>)}
-            { cartProducts && (<ShoopingCart products={cartProducts} handleRemove={handleRemove}/>)}
+            { cartProducts && (<ShoopingCart products={cartProducts} handleRemove={handleRemove} handleDecreament={handleDecreament}/>)}
         </div>
         );
     }

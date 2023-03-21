@@ -1,4 +1,4 @@
-const ShoopingCart = ({products, handleRemove}) => {
+const ShoopingCart = ({products, handleRemove, handleDecreament}) => {
    
     return (
         <div className="cart">
@@ -10,6 +10,7 @@ const ShoopingCart = ({products, handleRemove}) => {
                         <h3>{product.price}</h3>
                         <p>{product.quantity}</p>
                         <button onClick={()=>handleRemove(product)}>Remove</button>
+                        <button onClick={()=>handleDecreament(product)}> - </button>
                     </div>
 
                 ))}
