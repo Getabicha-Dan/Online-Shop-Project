@@ -8,7 +8,6 @@ const Home = () => {
     const [products, setProducts] = useState([{productName:'Face mask', price:'4.99€'},{productName:'Microwave oven', price:'89.99€'},{productName:'Vacum cleaner', price:'98.99€'},{productName:'ESpresso Machine', price:'229.99€'}]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [cartProducts, setCartProducts] = useState([]);
-   // const[cartCounter, setCartCounter] = useState(0);
 
     const handleAdder = (newProduct)=>{
         setProducts([...products, newProduct]);     
@@ -45,8 +44,8 @@ const Home = () => {
                     
          }
     }
+
     const handleDecreament =(product)=>{
-       
         const newarray2 = cartProducts.map(prod=>{
             if(prod.quantity > 1){
                 prod.quantity = prod.quantity -1;
@@ -55,6 +54,7 @@ const Home = () => {
         });
         setCartProducts(newarray2);
     }
+    
     const handleRemove = (productToRemove) => {
         setCartProducts(cartProducts.filter((product) => productToRemove !== product));
     }
