@@ -47,7 +47,7 @@ const Home = () => {
 
     const handleDecreament =(product)=>{
         const newarray2 = cartProducts.map(prod=>{
-            if(prod.quantity > 1){
+            if(prod.quantity > 1 && prod.productName === product.productName){
                 prod.quantity = prod.quantity -1;
             }
             return prod;
